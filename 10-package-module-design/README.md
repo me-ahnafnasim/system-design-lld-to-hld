@@ -10,17 +10,19 @@ There isn't one universally accepted list called "all types of Package / Module 
 
 ## How to read this mini-book
 
-| Part | Chapters | File |
-|---|---|---|
-| I — Organization: technical shape | 1. By Type · 2. By Layer | `01-part-one-organization-by-technical-shape.md` |
-| I — Organization: business shape | 3. By Feature · 4. Feature-first + Layer-inside · 5. By Domain · 6. By Bounded Context · 10. By Capability · 11. By Subdomain | `02-part-one-organization-by-business-shape.md` |
-| I — Organization: flow and unit | 7. Vertical Slice · 12. By Workflow · 13. By Role · 8. By Component · 9. By Service | `03-part-one-organization-by-flow-and-unit.md` |
-| II — Internal structure | 14. Shared/Common · 15. Shared Kernel · 16. Core/Infrastructure · 17. Plugin · 18. Public API + Internal | `04-part-two-internal-structure.md` |
-| II — Distribution | 19. Library · 20. Monorepo | `05-part-two-distribution.md` |
-| III — Dependencies + principles | 21. Dependency graphs · REP/CCP/CRP/ADP/SDP/SAP | `06-part-three-dependencies-and-principles.md` |
-| Closing | Hierarchy + TypeScript order + recommended structure | `07-closing-roadmap.md` |
+All chapters 1–21 + closing are in one file: [`package-module-design-book.md`](package-module-design-book.md).
 
-Start at Chapter 1 and read in order the first time. Later, use Chapter 7's hierarchy diagram as your index.
+| Part | Chapters |
+|---|---|
+| I — Organization: technical shape | 1. By Type · 2. By Layer |
+| I — Organization: business shape | 3. By Feature · 4. Feature-first + Layer-inside · 5. By Domain · 6. By Bounded Context · 10. By Capability · 11. By Subdomain |
+| I — Organization: flow and unit | 7. Vertical Slice · 12. By Workflow · 13. By Role · 8. By Component · 9. By Service |
+| II — Internal structure | 14. Shared/Common · 15. Shared Kernel · 16. Core/Infrastructure · 17. Plugin · 18. Public API + Internal |
+| II — Distribution | 19. Library · 20. Monorepo |
+| III — Dependencies + principles | 21. Dependency graphs · REP/CCP/CRP/ADP/SDP/SAP |
+| Closing | Hierarchy + TypeScript order + recommended structure |
+
+Start at Chapter 1 and read in order the first time. Later, use the closing hierarchy diagram as your index.
 
 ## The destination (spoiler)
 
