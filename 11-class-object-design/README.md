@@ -22,7 +22,17 @@ GoF patterns live here. Much smaller scope than System Architecture.
 ## Access & encapsulation
 - public / private / protected / package-private / internal, getters/setters, immutability, readonly
 
-## GoF patterns
+## GoF patterns — full notes in TypeScript
+
+Start here: [`design-patterns-typescript/`](design-patterns-typescript/) (converted from `Design_Patterns_Study_Notes_TypeScript.docx`).
+
+- [`design-patterns-typescript/01-creational-patterns.md`](design-patterns-typescript/01-creational-patterns.md)
+- [`design-patterns-typescript/02-structural-patterns.md`](design-patterns-typescript/02-structural-patterns.md)
+- [`design-patterns-typescript/03-behavioral-patterns.md`](design-patterns-typescript/03-behavioral-patterns.md)
+- [`design-patterns-typescript/04-pattern-selection-guide.md`](design-patterns-typescript/04-pattern-selection-guide.md)
+- [`design-patterns-typescript/05-typescript-application-guide.md`](design-patterns-typescript/05-typescript-application-guide.md)
+
+Quick index:
 - **Creational:** Singleton, Factory Method, Abstract Factory, Builder, Prototype
 - **Structural:** Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy
 - **Behavioral:** Chain of Responsibility, Command, Interpreter, Iterator, Mediator, Memento, Observer, State, Strategy, Template Method, Visitor
