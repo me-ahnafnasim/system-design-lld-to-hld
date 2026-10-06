@@ -1,4 +1,6 @@
-# Applying GoF Patterns in Modern TypeScript
+# Applying GoF Patterns in Modern Code
+
+> Examples in TypeScript; principles apply to Java, C#, Python, and other OOP languages.
 
 TypeScript supports classes, interfaces, generics, composition, modules, functions, closures, iterables, decorators (language/framework dependent), and structural typing. Therefore a GoF pattern does not always need the class-heavy form shown in older Java/C++ examples.
 

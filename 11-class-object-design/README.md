@@ -22,15 +22,15 @@ GoF patterns live here. Much smaller scope than System Architecture.
 ## Access & encapsulation
 - public / private / protected / package-private / internal, getters/setters, immutability, readonly
 
-## GoF patterns — full notes in TypeScript
+## GoF patterns — full notes
 
-Start here: [`design-patterns-typescript/`](design-patterns-typescript/) (converted from `Design_Patterns_Study_Notes_TypeScript.docx`).
+Start here: [`design-patterns/`](design-patterns/) (converted from `Design_Patterns_Study_Notes_TypeScript.docx`; examples in TypeScript, principles language-agnostic).
 
-- [`design-patterns-typescript/01-creational-patterns.md`](design-patterns-typescript/01-creational-patterns.md)
-- [`design-patterns-typescript/02-structural-patterns.md`](design-patterns-typescript/02-structural-patterns.md)
-- [`design-patterns-typescript/03-behavioral-patterns.md`](design-patterns-typescript/03-behavioral-patterns.md)
-- [`design-patterns-typescript/04-pattern-selection-guide.md`](design-patterns-typescript/04-pattern-selection-guide.md)
-- [`design-patterns-typescript/05-typescript-application-guide.md`](design-patterns-typescript/05-typescript-application-guide.md)
+- [`design-patterns/01-creational-patterns.md`](design-patterns/01-creational-patterns.md)
+- [`design-patterns/02-structural-patterns.md`](design-patterns/02-structural-patterns.md)
+- [`design-patterns/03-behavioral-patterns.md`](design-patterns/03-behavioral-patterns.md)
+- [`design-patterns/04-pattern-selection-guide.md`](design-patterns/04-pattern-selection-guide.md)
+- [`design-patterns/05-applying-patterns-in-code.md`](design-patterns/05-applying-patterns-in-code.md)
 
 Quick index:
 - **Creational:** Singleton, Factory Method, Abstract Factory, Builder, Prototype

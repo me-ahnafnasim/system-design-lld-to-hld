@@ -1,6 +1,6 @@
-# Design Patterns Study Notes (TypeScript-oriented)
+# Design Patterns Study Notes
 
-Creational • Structural • Behavioral — with TypeScript-oriented examples.
+Creational • Structural • Behavioral — examples in TypeScript, principles language-agnostic.
 
 > Purpose: understand why each pattern exists, when to choose it, how to apply it, and when not to use it.
 
@@ -12,7 +12,7 @@ Source: `Design_Patterns_Study_Notes_TypeScript.docx` (full conversion — no co
 - [`02-structural-patterns.md`](02-structural-patterns.md) — Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy
 - [`03-behavioral-patterns.md`](03-behavioral-patterns.md) — Strategy, Observer, Command, State, Template Method, Mediator, Iterator, Chain of Responsibility, Memento, Visitor, Interpreter
 - [`04-pattern-selection-guide.md`](04-pattern-selection-guide.md) — fast lookup table
-- [`05-typescript-application-guide.md`](05-typescript-application-guide.md) — modern TypeScript usage + learning order + practice
+- [`05-applying-patterns-in-code.md`](05-applying-patterns-in-code.md) — modern language usage + learning order + practice
 - [`REFERENCES.md`](REFERENCES.md) — verification sources
 
 ## 1. The Big Picture
