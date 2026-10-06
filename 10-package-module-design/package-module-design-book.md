@@ -16,6 +16,8 @@ There isn't one universally accepted list called "all types of Package / Module 
 2. **Internal structure + distribution** — public API, sharing, libraries, monorepo (Ch 14–20)
 3. **Dependency rules + principles** — graphs, REP/CCP/CRP/ADP/SDP/SAP (Ch 21)
 
+> **Overlap note (read this first):** Chapters 1–20 are a *catalog*, not 20 disjoint types. Five clusters describe the same idea at different zoom levels — see the `Related` line under each chapter: **(a)** Ch 3/5/6/10/11 = business grouping by feature → domain → context → capability → subdomain; **(b)** Ch 4 = recommended hybrid of Ch 2 + Ch 3, not a new taxonomy; **(c)** Ch 3/7/12 = feature cut at different widths (feature / single use-case / long process); **(d)** Ch 8/9/13/16 = reusable unit at different scope (component → role → core → service); **(e)** Ch 14/15/16 = sharing spectrum (loose shared → disciplined kernel → core infra). Nothing was deleted — each keeps its full example, plus a pointer to its siblings.
+
 ## How to use this file
 
 - **First read:** Chapters 1 → 21 in order. Each chapter follows the same template: *Idea → Structure → Use when → Watch out*.
@@ -107,9 +109,11 @@ src/
 
 **Why it wins:** high cohesion — files that change together stay together.
 
-## Ch 4 — Feature First, Layer Second
+> **Related (same idea, different zoom):** Ch 5 Domain = stable version of a feature; Ch 6 Bounded Context = feature + its own language/model; Ch 10 Capability = feature lifted to enterprise planning; Ch 11 Subdomain = feature ranked by investment (core/supporting/generic). Start here, graduate to those when the business language demands it.
 
-**Idea.** The strongest default for larger apps: feature outside, layers inside.
+## Ch 4 — Feature First, Layer Second ★ Recommended hybrid
+
+**Idea.** The strongest default for larger apps: feature outside, layers inside. **Not a new taxonomy entry — it is Ch 2 + Ch 3 combined.**
 
 ```text
 src/
@@ -152,6 +156,8 @@ Domain:  Identity, Admission, Finance, Academic
 
 **Use when:** DDD, ERP/CRM/finance, large modular monolith. Features come and go; domains persist.
 
+> **Related:** Ch 3 if the boundary is a UI feature; Ch 6 if the same word means different things per department (then you need contexts, not just domains).
+
 ## Ch 6 — Package by Bounded Context
 
 **Idea.** DDD-grade domains: each context owns its language and model.
@@ -171,6 +177,8 @@ Finance:   Student = account holder
 ```
 
 **Use when:** complex model, departments use different rules, boundaries must survive team growth.
+
+> **Related:** use Ch 5 Domain when one shared model suffices; graduate to contexts here only when language/rules genuinely diverge per department.
 
 ## Ch 7 — Vertical Slice Design
 
@@ -193,6 +201,8 @@ HTTP → CreateUser slice → Validation → Handler → Persistence
 
 **Use when:** many independent use cases, CQRS-style design, change isolation by use case.
 
+> **Related (slice width):** Ch 3 Feature = multi-use-case bundle; Ch 7 = single use-case slice; Ch 12 Workflow = long-running process slice. Same cohesion logic, different cut width.
+
 ## Ch 8 — Package by Component
 
 **Idea.** Larger reusable components with an explicit public interface.
@@ -214,6 +224,8 @@ Billing Component
 
 **Use when** you want information hiding and explicit boundaries without separate deployments.
 
+> **Related (reusable-unit ladder):** Ch 8 Component (in-process) → Ch 13 Role (cross-cutting responsibility) → Ch 16 Core (stable infra plumbing) → Ch 9 Service (independently deployable). Pick by deployment/scope reality, not prestige.
+
 ## Ch 9 — Package by Service
 
 **Idea.** Service-shaped modules; layers reappear inside each one.
@@ -234,7 +246,7 @@ payment-service/
 └── infrastructure/
 ```
 
-> A package is not automatically a microservice. It becomes one only with an independent deployment boundary. Until then it is a well-isolated module — which is good.
+> A package is not automatically a microservice. It becomes one only with an independent deployment boundary. Until then it is a well-isolated module — which is good. See the reusable-unit ladder in Ch 8.
 
 ## Ch 10 — Package by Capability
 
@@ -251,6 +263,8 @@ capabilities/
 
 Best at enterprise / modular-monolith scale, where capabilities are the stable planning unit.
 
+> **Related:** Ch 5 Domain with an enterprise-planning lens. Use Capability when roadmapping across teams; use Domain when modeling software boundaries.
+
 ## Ch 11 — Package by Subdomain
 
 **Idea.** Let DDD subdomains draw the lines; invest accordingly.
@@ -262,6 +276,8 @@ University
 ├── Reporting       ← Supporting (keep lean)
 └── Authentication  ← Generic (buy/borrow)
 ```
+
+> **Related:** Ch 5/10 with investment priority. Subdomain answers "where do we invest modeling effort?" — domains/capabilities answer "where are the boundaries?" 
 
 ## Ch 12 — Package by Workflow / Process
 
@@ -281,6 +297,8 @@ Admission: Application → Document Check → Payment → Approval → Enrollmen
 
 **Use when** approvals, onboarding, refunds, or graduation pipelines dominate.
 
+> **Related:** Ch 7 sliced by use-case; Ch 12 sliced by end-to-end process. Use Workflow when the long-running flow outlives any single entity or screen.
+
 ## Ch 13 — Package by Role / Responsibility
 
 **Idea.** Group by responsibility; ideal for reusable infrastructure.
@@ -296,6 +314,8 @@ src/
 ```
 
 Keep each role's public surface narrow or it rots into a second `shared/` folder.
+
+> **Related:** see the reusable-unit ladder in Ch 8. Role = responsibility-scoped component; keep it behind a public API (Ch 18).
 
 ---
 
@@ -325,6 +345,8 @@ shared/
 
 Only truly shared concepts. Otherwise every module couples to everything.
 
+> **Sharing spectrum:** Ch 14 Shared (loose, risky) → Ch 15 Shared Kernel (small, stable, versioned) → Ch 16 Core (technical plumbing only). Default to the narrowest one that works.
+
 ## Ch 15 — Shared Kernel
 
 Disciplined DDD sharing — only very stable cross-domain concepts:
@@ -345,6 +367,8 @@ Finance ────┘
 
 Keep it small. Every change ripples across domains.
 
+> **Related:** Ch 14 for the anti-pattern version of this; Ch 16 for technical (non-domain) reuse.
+
 ## Ch 16 — Core / Infrastructure Module
 
 Boring, stable technical plumbing reused across features:
@@ -360,6 +384,8 @@ src/
 ```
 
 Never mix business logic into `core`.
+
+> **Related:** Ch 13 Role for responsibility grouping; Ch 15 Kernel for shared *domain* concepts. Core is for shared *technical* plumbing only.
 
 ## Ch 17 — Plugin / Extension Modules
 
@@ -455,6 +481,13 @@ Two modules that cannot live without each other are usually one module. Break cy
 | Group | Principle | One-line rule |
 |---|---|---|
 | Cohesion | **REP** — Reuse/Release Equivalence | Things reused together ship together |
+| Cohesion | **CCP** — Common Closure | Things changing for the same reason stay together (package-level SRP) |
+| Cohesion | **CRP** — Common Reuse | Things used together stay together; don't force 30 deps for 1 class |
+| Coupling | **ADP** — Acyclic Dependencies | No cycles, ever |
+| Coupling | **SDP** — Stable Dependencies | Volatile → stable (`UI → Application → Domain`), never reverse |
+| Coupling | **SAP** — Stable Abstractions | Stable packages expose interfaces (`PaymentGateway`), implementations vary (`Stripe/Bkash/BankGateway`) |
+
+### REP example
 
 ```text
 payment-sdk
@@ -463,8 +496,9 @@ payment-sdk
 └── PaymentResponse
 ```
 
-Don''t mix unrelated reusable things into one package just because they are small.|
-| Cohesion | **CCP** — Common Closure | Things changing for the same reason stay together (package-level SRP) |
+Don't mix unrelated reusable things into one package just because they are small.
+
+### CCP example
 
 ```text
 admission/
@@ -473,11 +507,7 @@ admission/
 └── Visit.ts
 ```
 
-If admission policy changes, these change together — so they belong together.|
-| Cohesion | **CRP** — Common Reuse | Things used together stay together; don't force 30 deps for 1 class |
-| Coupling | **ADP** — Acyclic Dependencies | No cycles, ever |
-| Coupling | **SDP** — Stable Dependencies | Volatile → stable (`UI → Application → Domain`), never reverse |
-| Coupling | **SAP** — Stable Abstractions | Stable packages expose interfaces (`PaymentGateway`), implementations vary (`Stripe/Bkash/BankGateway`) |
+If admission policy changes, these change together — so they belong together.
 
 ```ts
 interface PaymentGateway {
@@ -505,6 +535,16 @@ REP/CCP/CRP decide **what belongs together**; ADP/SDP/SAP decide **which way dep
 | Shared infra plumbing | Ch 13 Role / Ch 16 Core |
 
 ---
+
+# Overlap map — what to merge in your head, not in the file
+
+| Cluster | Chapters | How to read them |
+|---|---|---|
+| Business grouping | Ch 3 / 5 / 6 / 10 / 11 | One idea, five zoom levels: feature → domain → context → capability → subdomain |
+| Recommended default | Ch 4 | Not a type — the Ch 2 + Ch 3 hybrid to default to |
+| Slice width | Ch 3 / 7 / 12 | Feature bundle vs single use-case vs long process |
+| Reusable unit | Ch 8 / 9 / 13 / 16 | Component → role → core → service, by deployment/scope |
+| Sharing | Ch 14 / 15 / 16 | Loose shared → kernel → core; narrowest wins |
 
 # Practical hierarchy — your index
 
