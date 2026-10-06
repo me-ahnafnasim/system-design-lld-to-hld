@@ -8,9 +8,9 @@ Source: `Design_Patterns_Study_Notes_TypeScript.docx` (full conversion — no co
 
 ## Contents
 
-- [`01-creational-patterns.md`](01-creational-patterns.md) — Singleton, Factory Method, Abstract Factory, Builder, Prototype → deep dives in [`creational/`](creational/)
-- [`02-structural-patterns.md`](02-structural-patterns.md) — Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy → deep dives in [`structural/`](structural/)
-- [`03-behavioral-patterns.md`](03-behavioral-patterns.md) — Strategy, Observer, Command, State, Template Method, Mediator, Iterator, Chain of Responsibility, Memento, Visitor, Interpreter → deep dives in [`behavioral/`](behavioral/)
+- [`01-creational-patterns.md`](01-creational-patterns.md) — Singleton, Factory Method, Abstract Factory, Builder, Prototype
+- [`02-structural-patterns.md`](02-structural-patterns.md) — Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy
+- [`03-behavioral-patterns.md`](03-behavioral-patterns.md) — Strategy, Observer, Command, State, Template Method, Mediator, Iterator, Chain of Responsibility, Memento, Visitor, Interpreter
 - [`04-pattern-selection-guide.md`](04-pattern-selection-guide.md) — fast lookup table
 - [`05-applying-patterns-in-code.md`](05-applying-patterns-in-code.md) — modern language usage + learning order + practice
 - [`REFERENCES.md`](REFERENCES.md) — verification sources
