@@ -1,4 +1,4 @@
-# Glossary — 12 Levels
+# Glossary — 13 Levels
 
 | Term | Level | Short definition |
 |---|---|---|
@@ -12,9 +12,11 @@
 | Infrastructure Architecture | 08 | Cloud/K8s/networking/CDN/DR (TOGAF Technology) |
 | Component/Service | 09 | Major parts inside app/system (C4 component) |
 | Package/Module | 10 | Code grouping, cohesion/coupling, REP…SAP |
-| Class/Object (LLD) | 11 | SOLID, GRASP, GoF, relationships |
-| Function/Algorithm | 12 | Complexity, control flow, validation |
-| LLD | 09–11 | Class-level design |
+| OOP Foundations (LLD) | 11 | Class, object, pillars, relationships, coupling/cohesion |
+| Class/Object (LLD) | 12 | SOLID, GRASP, GoF, patterns |
+| Function/Algorithm | 13 | Complexity, control flow, validation |
+| Function/Algorithm | 13 | Complexity, control flow, validation |
+| LLD | 09–12 | Class-level design |
 | HLD | 04/06–08 | System-level design |
 | UML / C4 | — | Class/sequence; context/container/component |
 | CAP / BASE / ACID | 04 | Consistency/availability trade-offs |

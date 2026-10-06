@@ -1,4 +1,4 @@
-# 11 — Class & Object Design
+# 12 — Class & Object Design
 
 > How do classes / objects collaborate internally?
 

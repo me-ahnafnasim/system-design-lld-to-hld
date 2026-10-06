@@ -46,7 +46,7 @@ src/
 
 In one line: **Domain/Feature first → layers inside → explicit public API → controlled dependencies → minimal shared code.**
 
-That combination connects directly to Level 11 (Class & Object Design): once module boundaries are correct, you decide how classes inside each module use Factory, Strategy, Adapter, Facade, and the other patterns.
+That combination connects directly to Level 12 (Class & Object Design): once module boundaries are correct, you decide how classes inside each module use Factory, Strategy, Adapter, Facade, and the other patterns.
 
 ## Checklist (use after the book)
 

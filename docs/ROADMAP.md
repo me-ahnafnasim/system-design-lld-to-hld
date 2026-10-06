@@ -1,4 +1,4 @@
-# Roadmap — 12 Levels
+# Roadmap — 13 Levels
 
 ## Phase 1 — Scope (01–03)
 - [ ] 01 Business: capability map for university
@@ -14,11 +14,12 @@
 - [ ] 07 Data: ownership table + DB decisions
 - [ ] 08 Infra: deployment diagram + DR + deploy strategy
 
-## Phase 4 — Code (09–12)
+## Phase 4 — Code (09–13)
 - [ ] 09 Component/Service: responsibility table + resilience
 - [ ] 10 Package/Module: dependency rule enforced, no cycles
-- [ ] 11 Class/Object: SOLID fixes + 2 patterns per GoF category
-- [ ] 12 Function/Algorithm: complexity + edge cases
+- [ ] 11 OOP Foundations: class/object/pillars/relationships/coupling-cohesion
+- [ ] 12 Class/Object: SOLID fixes + 2 patterns per GoF category
+- [ ] 13 Function/Algorithm: complexity + edge cases
 
 ## Phase 5 — Example + Interview
 - [ ] Trace `examples/worldconnect/` top-down

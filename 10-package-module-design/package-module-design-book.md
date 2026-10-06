@@ -6,7 +6,7 @@
 |---|---|
 | **Level** | 10 of 12 — Package / Module Design |
 | **Read after** | Level 09 Component/Service Architecture |
-| **Read before** | Level 11 Class / Object Design |
+| **Read before** | Level 11 OOP Foundations |
 | **Time** | ~45 min cover-to-cover, ~10 min via Closing index |
 | **Stack** | TypeScript-first, language-agnostic principles |
 
@@ -31,7 +31,7 @@ There isn't one universally accepted list called "all types of Package / Module 
 - [Part III — Dependencies + Principles (Ch 21)](#part-iii--dependencies--principles-ch-21)
 - [Decision guide](#decision-guide--which-organization-when)
 - [Practical hierarchy + TypeScript order](#practical-hierarchy--your-index)
-- [Recommended structure + bridge to Level 11](#recommended-structure-for-large-typescript-apps)
+- [Recommended structure + bridge to Levels 11–12](#recommended-structure-for-large-typescript-apps)
 - [Checklist](#final-checklist)
 
 ---
@@ -594,9 +594,9 @@ src/
 
 > **Domain/Feature first → layers inside → explicit public API → controlled dependencies → minimal shared code.**
 
-## Bridge to Level 11
+## Bridge to Levels 11–12
 
-Correct module boundaries make class design easy: Factory for creation, Strategy for rules, Adapter for integrations, Facade for orchestration inside each module. Bad modules make patterns fight the structure.
+Level 11 gives you the atoms (class/object/interface/relationships); Level 12 adds the judgment (SOLID, GoF inside each module). Correct module boundaries make both easy. Bad modules make patterns fight the structure.
 
 ---
 
@@ -608,4 +608,4 @@ Correct module boundaries make class design easy: Factory for creation, Strategy
 - [ ] Shared code minimal, named, and versioned — never a `utils.ts` dump
 - [ ] One module = one reason to change (CCP); consumers don't over-depend (CRP/REP)
 
-See also: `REFERENCES.md` for sources, `../11-class-object-design/` for what lives *inside* each module.
+See also: `REFERENCES.md` for sources, `../12-class-object-design/` for what lives *inside* each module.

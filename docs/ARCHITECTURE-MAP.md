@@ -1,12 +1,12 @@
 # Software Architecture & Design Map — From Business to Function
 
 Single canonical map merging:
-- **A:** 12-level scope hierarchy (Business → Function/Algorithm)
+- **A:** 13-level scope hierarchy (Business → Function/Algorithm)
 - **B:** 6-level terminology hierarchy (Enterprise → Class/Object) + patterns, principles, metrics
 
-Terminology varies by org. TOGAF distinguishes **Business, Data, Application, and Technology Architecture**; other frameworks separate Enterprise / Solution / System scope. This repo uses the 12 levels below as a learning map, not a mandated standard.
+Terminology varies by org. TOGAF distinguishes **Business, Data, Application, and Technology Architecture**; other frameworks separate Enterprise / Solution / System scope. This repo uses the 13 levels below as a learning map, not a mandated standard.
 
-## The 12 levels
+## The 13 levels
 
 | # | Level | Main question |
 |---:|---|---|
@@ -20,8 +20,9 @@ Terminology varies by org. TOGAF distinguishes **Business, Data, Application, an
 | 8 | **Infrastructure / Deployment Architecture** | Where and how does the software run? |
 | 9 | **Component / Service Architecture** | What major components / services exist inside the application / system? |
 | 10 | **Package / Module Design** | How is source code divided into modules / packages? |
-| 11 | **Class & Object Design** | How do classes / objects collaborate internally? |
-| 12 | **Function / Algorithm Design** | How does an individual behavior actually work? |
+| 11 | **OOP Foundations** | What are the language/design atoms (class, object, pillars, relationships)? |
+| 12 | **Class & Object Design** | How do classes / objects collaborate internally? |
+| 13 | **Function / Algorithm Design** | How does an individual behavior actually work? |
 
 ```text
 1. Business Architecture
@@ -44,9 +45,11 @@ Terminology varies by org. TOGAF distinguishes **Business, Data, Application, an
           ↓
 10. Package / Module Design
           ↓
-11. Class / Object Design
+11. OOP Foundations
           ↓
-12. Function / Algorithm Design
+12. Class / Object Design
+          ↓
+13. Function / Algorithm Design
 ```
 
 ## Strict hierarchy vs parallel concerns
@@ -65,7 +68,7 @@ System Architecture
 └── Infrastructure Architecture
 ```
 
-Similarly at code level, component → package → class → function is roughly top-down, but data, integration, and infra cut across.
+Similarly at code level, component → package → foundations → class → function is roughly top-down, but data, integration, and infra cut across.
 
 Think of these as **vertical / cross-cutting concerns**:
 
@@ -84,7 +87,7 @@ Data Governance ──────────┤
 
 See `cross-cutting-concerns/` for checklists.
 
-## How the old 6 levels map to the new 12
+## How the old 6 levels map to the new 13
 
 | Old 6-level name | Maps to new levels |
 |---|---|
@@ -93,7 +96,7 @@ See `cross-cutting-concerns/` for checklists.
 | 3. Component & Module Architecture | 9 Component/Service + 6 Integration + 8 Infrastructure/Deployment |
 | 4. Application Architecture | 5 Application (layers, DDD, Clean/Hexagonal, app patterns) |
 | 5. Package & Module Design | 10 Package/Module (cohesion, coupling, package principles) |
-| 6. Class & Object Design | 11 Class/Object + 12 Function/Algorithm |
+| 6. Class & Object Design | 11 OOP Foundations + 12 Class/Object + 13 Function/Algorithm |
 
 No content was dropped — it was redistributed to its exact level (see folder READMEs).
 
@@ -131,10 +134,13 @@ Admission App: Lead, Counselling, Visit, Admission, Reporting, Notifications. Or
 ### 10. Package / Module — code organization
 High cohesion, low coupling, info hiding, public API, dependency direction. Cohesion/coupling types. Package principles: REP, CCP, CRP, ADP, SDP, SAP. Namespaces, visibility, SemVer. Example `src/admission/{domain,application,infrastructure,presentation}`.
 
-### 11. Class & Object — GoF lives here
-SOLID + DRY/KISS/YAGNI/composition-over-inheritance/Tell-Don't-Ask/Law of Demeter/Hollywood/program-to-interface. GRASP: Expert, Creator, Low Coupling, High Cohesion, Controller, Polymorphism, Pure Fabrication, Indirection, Protected Variations. Relationships: association, aggregation, composition, inheritance, realization, dependency. Access modifiers, immutability. Creational/Structural/Behavioral patterns. Anti-patterns (God Object, spaghetti, etc.) and metrics (cyclomatic, DIT, CBO, LCOM, etc.).
+### 11. OOP Foundations — atoms before judgment
+Class, object, property/field, method, constructor, access modifiers, encapsulation, abstraction, inheritance, polymorphism, interface vs abstract class, association, aggregation, composition, dependency, static vs instance, `this`/`super`, coupling, cohesion, composition-over-inheritance. See `11-object-oriented-programming-foundations/`.
 
-### 12. Function / Algorithm — single behavior
+### 12. Class & Object — GoF lives here
+SOLID + DRY/KISS/YAGNI/Tell-Don't-Ask/Law of Demeter/Hollywood/program-to-interface. GRASP: Expert, Creator, Low Coupling, High Cohesion, Controller, Polymorphism, Pure Fabrication, Indirection, Protected Variations. Creational/Structural/Behavioral patterns. Anti-patterns (God Object, spaghetti, etc.) and metrics (cyclomatic, DIT, CBO, LCOM, etc.). Assumes Level 11 atoms.
+
+### 13. Function / Algorithm — single behavior
 `calculateScholarship()`: algorithm, control flow, time/space complexity, validation, error handling, pure functions, data structures. Linear vs binary vs hash lookup.
 
 ## Cross-cutting concerns (all levels)
@@ -157,4 +163,4 @@ SOLID + DRY/KISS/YAGNI/composition-over-inheritance/Tell-Don't-Ask/Law of Demete
 
 ## Folder map
 
-Each level has an exact folder. Start here, then go in order 01 → 12, with `cross-cutting-concerns/` read alongside, and `examples/worldconnect/` as the end-to-end trace.
+Each level has an exact folder. Start here, then go in order 01 → 13, with `cross-cutting-concerns/` read alongside, and `examples/worldconnect/` as the end-to-end trace.

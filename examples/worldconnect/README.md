@@ -1,8 +1,8 @@
 # Example — WorldConnect (Global Social Platform, React.js)
 
-End-to-end trace of the 12 levels using one product: **WorldConnect** — connect 1B users with realtime translation.
+End-to-end trace of the 13 levels using one product: **WorldConnect** — connect 1B users with realtime translation.
 
-Use this as the worked example after reading `docs/ARCHITECTURE-MAP.md`. Each section maps to its exact folder (01 → 12).
+Use this as the worked example after reading `docs/ARCHITECTURE-MAP.md`. Each section maps to its exact folder (01 → 13).
 
 ---
 
@@ -58,7 +58,14 @@ src/{domain/{entities,value-objects,repositories,events},
 ```
 - Rule: `domain ← application ← infrastructure ← presentation`. ADP/SDP/CCP enforced, no cycles.
 
-## 11 Class / Object — React + TypeScript highlights
+## 11 OOP Foundations — atoms in WorldConnect
+- **Class/Object:** `User`, `Profile`, `Email` (value object with validation), `Avatar` (composed), `Post[]` (aggregated in `UserFeed`).
+- **Interface vs abstract:** `DataSource` / `StorageService` / `UserRepository` interfaces; `BaseComponent` abstract for shared render helpers; `PostgresUserRepository` implements the port.
+- **Relationships:** `UserProfile` *composes* `Avatar`; `UserFeed` *aggregates* `Post[]`; `UpdateUserProfileUseCase` *depends on* `UserRepository` abstraction; `UserManager` *encapsulates* private `users` map.
+- **Static/instance, this/super:** `Logger.getInstance()` static access point vs per-request use-case instances; `UserCard extends BaseComponent` uses `super` for shared behavior, `this` for instance state.
+- **Coupling/cohesion:** split god `UserProfile`/`MegaComponent` into `UserInfo/UserPosts/UserFriends`, `Header/Feed/Sidebar/Footer`; Context over prop-drilling.
+
+## 12 Class / Object — React + TypeScript highlights
 - **SRP:** split `UserProfile` into `UserInfo/UserPosts/UserFriends` with `useQuery`.
 - **OCP:** `Button variant={primary|secondary|danger}` extensible without edits.
 - **LSP:** `RestDataSource` / `GraphQLDataSource` both satisfy `DataSource`.
@@ -67,11 +74,9 @@ src/{domain/{entities,value-objects,repositories,events},
 - **Observer:** WebSocket → `setNotifications` in `NotificationBell`.
 - **Compound:** `Tabs/TabList/Tab/TabPanel` via context.
 - **Hook:** `useFriendship(friendId)` encapsulates request/accept.
-- **Relations:** `UserProfile` composes `Avatar`; `UserFeed` aggregates `Post[]`; `UserCard extends BaseComponent` sparingly.
-- **Encapsulation:** `UserManager` private `users`, public `addUser/getUser`, private `validateUser`.
-- **Anti-patterns:** god component → split to `Header/Feed/Sidebar/Footer`; prop-drilling → Context.
+- **Anti-patterns:** god component → split to `Header/Feed/Sidebar/Footer`; prop-drilling → Context. (Atoms — relations, encapsulation, coupling fixes — now live in Level 11 above; here is the SOLID/GoF judgment on top.)
 
-## 12 Function / Algorithm — single behavior
+## 13 Function / Algorithm — single behavior
 - `isValidEmail()`, feed ranking, `calculateScholarship`-style pure functions: note complexity, validate inputs, handle errors, prefer pure/testable.
 
 ---

@@ -1,4 +1,4 @@
-# 12 — Function / Algorithm Design
+# 13 — Function / Algorithm Design
 
 > How does an individual behavior actually work?
 
