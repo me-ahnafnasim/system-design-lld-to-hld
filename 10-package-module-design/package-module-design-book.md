@@ -454,8 +454,26 @@ Two modules that cannot live without each other are usually one module. Break cy
 
 | Group | Principle | One-line rule |
 |---|---|---|
-| Cohesion | **REP** — Reuse/Release Equivalence | Things reused together ship together (`payment-sdk`: Client + Request + Response) |
-| Cohesion | **CCP** — Common Closure | Things changing for the same reason stay together (`admission/`: Lead, Counselling, Visit) |
+| Cohesion | **REP** — Reuse/Release Equivalence | Things reused together ship together |
+
+```text
+payment-sdk
+├── PaymentClient
+├── PaymentRequest
+└── PaymentResponse
+```
+
+Don''t mix unrelated reusable things into one package just because they are small.|
+| Cohesion | **CCP** — Common Closure | Things changing for the same reason stay together (package-level SRP) |
+
+```text
+admission/
+├── Lead.ts
+├── Counselling.ts
+└── Visit.ts
+```
+
+If admission policy changes, these change together — so they belong together.|
 | Cohesion | **CRP** — Common Reuse | Things used together stay together; don't force 30 deps for 1 class |
 | Coupling | **ADP** — Acyclic Dependencies | No cycles, ever |
 | Coupling | **SDP** — Stable Dependencies | Volatile → stable (`UI → Application → Domain`), never reverse |
